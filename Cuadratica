@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+    char continuar;
+    do
+    {float a, b, c;
+     float d, e1, e2;
+     cout<<"Ingrese el valor a"<<endl; cin>>a;
+     cout<<"ingrese el valor b"<<endl; cin>>b;
+     cout<<"ingrese el valor c"<<endl; cin>>c;
+     if(a=0)
+     {   cout<<"la operacion no es cuadratica"<<endl;
+        cout<<"x= "<<(-c)/b<<endl; }
+     d=pow(b,2)-(4)*a*c;
+     if (d=0)
+     {   e1=(-b)/2*a;
+         cout<<"Solucion unica"<<endl;
+         cout<<"x= "<<e1;}
+     if (d<0)
+     {   e1=(-b+pow(-d,1/2))/2*a;
+         e2=(-b-pow(-d,1/2))/2*a;
+         cout<<"solucion imaginaria"<<endl;
+         cout<<"x2= "<<e1<<"i"<<endl;
+         cout<<"x1= "<<e2<<"i"<<endl;
+     }
+     if(d>0)
+     {   e1=(-b+pow(d,1/2))/2*a;
+         e2=(-b-pow(d,1/2))/2*a;
+         cout<<"solucion imaginaria"<<endl;
+         cout<<"x2= "<<e1<<endl;
+         cout<<"x1= "<<e2<<endl;
+     }
+         cout<<"¿desea continuar? (s) o (n)"<<endl;
+         cin>>continuar;
+    }while(continuar=='s'||continuar=='S');
+    return 0;
+}
