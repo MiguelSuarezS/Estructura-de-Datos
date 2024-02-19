@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+float r;
+void menu();
+float suma (int x,int n);
+float resta (int x,int n);
+float Multiplicacion (int x,int n);
+int main()
+{
+    int x, n, op;
+    cout<<"Ingrese el primer valor numerico: "<<endl; cin>>x;
+    cout<<"Ingrese el segundo valor numerico: "<<endl; cin>>n;
+    do
+    {
+        menu();
+        cout<<"Ingrese la opcion que desee: "<<endl; cin>>op;
+        switch(op)
+        {
+            case 1:cout<<"el resultado es: "<<suma(x,n)<<endl;
+            break;
+            case 2:cout<<"el resultado es: "<<resta(x,n)<<endl;
+            break;
+            case 3:cout<<"el resultado es: "<<Multiplicacion(x,n)<<endl;
+            break;
+            case 0:cout<<"A concluido el programa"<<endl;
+            break;
+            default:cout<<"Error"<<endl;
+        }
+    }while(op!=0);
+
+    return 0;
+}
+void menu()
+{
+    cout<<"****Menu****"<<endl;
+    cout<<"1. Suma"<<endl;
+    cout<<"2, Resta"<<endl;
+    cout<<"3. Multiplicacion"<<endl;
+    cout<<"0. Salir"<<endl;
+}
+float suma (int x,int n)
+{   r=x+n;
+    cout<<"la suma de los 2 numeros es: "<<r<<endl;
+    return r;
+}
+float resta (int x,int n)
+{    r=x-n;    
+    cout<<"la resta de los 2 numeros es: "<<r<<endl;
+    return r;
+}
+float Multiplicacion (int x,int n)
+{    r=x*n; 
+     cout<<"la suma de los 2 numeros es: "<<r<<endl;
+    return r;
+}
