@@ -63,4 +63,5 @@ int get_codigo();
 	bool modificar(fstream& fes, int nroReg);
 	bool buscar(ifstream& fentrada, int nroReg);
 	int get_tam();
+};
 
