@@ -1,0 +1,49 @@
+#include <iostream>
+#include <fstream>
+#include "ABMpersona.h"
+
+using namespace std;
+
+int main() {
+	int op;
+
+	ABMpersona* person = new ABMpersona("person.dat");
+	do
+	{
+		cout << "\n1. Adicionar nuevo" << endl;
+		cout << "2. Listar" << endl;
+		cout << "3. Buscar registro" << endl;
+		cout << "4. Eliminar registro" << endl;
+		cout << "5. Modificar registro" << endl;
+		cout << "0. Salir" << endl;
+		cin >> op;
+		switch (op)
+		{
+		case 0:
+			cout << "saliendo pa " << endl;
+			break;
+		case 1:
+			person->adicionar_nuevo();
+			cout << "Elementos agregados ..." << endl;
+			break;
+		case 2:
+			person->listar();
+			break;
+		case 3:
+			person->buscar_reg();
+			break;
+		case 4:
+			person->eliminar_reg();
+			break;
+		case 5:
+			person->modificar_reg();
+			break;
+		default:
+			cout << "No ingreso ninguna de las opciones" << endl;
+		}
+	} while (op!=0);
+
+	cout << "Fin del programa" << endl;
+
+	return 0;
+}
