@@ -1,0 +1,19 @@
+#include "Deque.h"
+
+int main() {
+    Deque dq;
+
+    // Pruebas de inserción y eliminación
+    dq.insertLast(1);
+    dq.insertFront(2);
+    cout << "Front element: " << dq.getFront() << endl; // Debe ser 2
+    cout << "Last element: " << dq.getLast() << endl;    // Debe ser 1
+
+    dq.deleteFront();
+    cout << "Front element after one deletion: " << dq.getFront() << endl; // Debe ser 1
+
+    dq.deleteLast();
+    cout << "Deque size after all deletions: " << dq.getSize() << endl; // Debe ser 0
+
+    return 0;
+}
