@@ -1,0 +1,24 @@
+#include "ColaCircular.h"
+
+int main() {
+    ColaCircular cq(5); // Capacidad de la cola circular es 5
+
+    // Pruebas de inserción
+    cq.encolar(1);
+    cq.encolar(2);
+    cq.encolar(3);
+    cq.encolar(4);
+    cq.encolar(5);
+
+    cout << "Elemento al frente: " << cq.obtenerFrente() << endl; // Debe ser 1
+    cout << "Elemento al final: " << cq.obtenerFinal() << endl;   // Debe ser 5
+
+    // Prueba de eliminación
+    cout << "Desencolar: " << cq.desencolar() << endl; // Debe ser 1
+    cout << "Elemento al frente después de desencolar: " << cq.obtenerFrente() << endl; // Debe ser 2
+
+    cq.encolar(6);
+    cout << "Elemento al final después de encolar 6: " << cq.obtenerFinal() << endl; // Debe ser 6
+
+    return 0;
+}
