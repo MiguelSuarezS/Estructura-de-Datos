@@ -1,0 +1,77 @@
+#include "ColaCircular.h"
+
+// Constructor
+ColaCircular::ColaCircular(int capacidad) : capacidad(capacidad), frente(-1), final(-1), tamano(0) {
+    arr = new int[capacidad];
+}
+
+// Destructor
+ColaCircular::~ColaCircular() {
+    delete[] arr;
+}
+
+// Inserta un elemento al final
+void ColaCircular::encolar(int dato) {
+    if (estaLlena()) {
+        cout << "La cola está llena" << endl;
+        return;
+    }
+
+    if (estaVacia()) {
+        frente = final = 0;
+    } else {
+        final = (final + 1) % capacidad;
+    }
+    arr[final] = dato;
+    tamano++;
+}
+
+// Elimina un elemento del frente
+int ColaCircular::desencolar() {
+    if (estaVacia()) {
+        cout << "La cola está vacía" << endl;
+        return -1;
+    }
+
+    int dato = arr[frente];
+    if (frente == final) {
+        frente = final = -1; // La cola está ahora vacía
+    } else {
+        frente = (frente + 1) % capacidad;
+    }
+    tamano--;
+    return dato;
+}
+
+// Muestra el elemento del frente
+int ColaCircular::obtenerFrente() {
+    if (estaVacia()) {
+        cout << "La cola está vacía" << endl;
+        return -1;
+    }
+    return arr[frente];
+}
+
+// Muestra el elemento del final
+int ColaCircular::obtenerFinal() {
+    if (estaVacia()) {
+        cout << "La cola está vacía" << endl;
+        return -1;
+    }
+    return arr[final];
+}
+
+// Muestra el tamaño de la cola
+int ColaCircular::obtenerTamano() {
+    return tamano;
+}
+
+// Verifica si la cola está vacía
+bool ColaCircular::estaVacia() {
+    return tamano == 0;
+}
+
+// Verifica si la cola está llena
+bool ColaCircular::estaLlena() {
+    return tamano == capacidad;
+}
