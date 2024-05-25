@@ -1,0 +1,81 @@
+//header
+#pragma once
+#include<iostream>
+using namespace std;
+
+class Array {
+private:
+    int n;
+public:
+    Array(int n) {
+        this->n = n;
+    }
+    void MostrarArray(int A[]);
+    int MostrarMayor(int A[]);
+    int MostrarMenor(int A[]);
+    float MostrarPromedio(int A[]);
+};
+
+
+
+//cpp
+#include "Arrayheader.h"
+#include<iostream>
+using namespace std;
+
+void Array::MostrarArray(int A[]) {
+    for (int i = 0; i < n; i++)
+        cout << A[i] << " ";
+}
+
+int Array::MostrarMayor(int A[]) {
+    int mayor = 0;
+    for (int i = 0; i < n; i++) {
+        if (A[i] > mayor)
+            mayor = A[i];
+    }
+    return mayor;
+}
+int Array::MostrarMenor(int A[]) {
+    int menor = A[0];
+    for (int i = 0; i < n; i++) {
+        if (A[i] < menor)
+            menor = A[i];
+    }
+    return menor;
+}
+float Array::MostrarPromedio(int A[]) {
+    int promedio = 0;
+    for (int i = 0; i < n; i++) {
+        promedio = promedio + A[i];
+    }
+    promedio = promedio / n;
+
+    return promedio;
+}
+
+
+//main
+#include<iostream>
+#include"Arrayheader.h"
+
+using namespace std;
+
+int main() {
+    
+    int mayor, menor;
+    float promedio;
+    int A[] = { {1},{3},{5},{7},{9} };
+    //Instancia la clase
+
+    Array array1(5);
+    array1.MostrarArray(A);
+    mayor=array1.MostrarMayor(A);
+    cout <<"\nEl mayor numero es " << mayor;
+    menor = array1.MostrarMenor(A);
+    cout << "\nEl menor numero es " << menor;
+    promedio = array1.MostrarPromedio(A);
+    cout << "\nEl promedio es " << promedio;
+
+    return 0;
+}
